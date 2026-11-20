@@ -5,7 +5,7 @@ Plain static HTML/CSS/JS, so there is no build step.
 
 | Path | What it is |
 |------|-----------|
-| `/` | Chooser for the Maharashtrian designs |
+| `/` | Redirects to the photo-based Wada invitation |
 | `/generic` | Generic wedding invitation prototype with live customizer |
 | `/maharashtrian/wada` | Ancient wada: carved doors, scroll, toran, diyas |
 | `/maharashtrian/paithani` | Paithani silk: zari cloth that splits open |

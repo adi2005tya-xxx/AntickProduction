@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wada Vivah Patrika</title>
 <meta name="description" content="A cinematic wedding invitation set in a Peshwa-era wada.">
-<link rel="preload" as="image" href="img/gate.jpg">
+<link rel="preload" as="image" href="assets/wada/gate.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
 <style>
 :root{--brass:#c9a15a;--brass2:#f0d28f;--wood:#1b110a;--wood2:#2b1a10;--ink:#3a2414;--kum:#a3231f;--light:#f3e6c8;
@@ -63,7 +63,7 @@ body.ready .hbg{animation:arrive 3.2s ease-out}
 .flick{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(ellipse at 50% 105%,rgba(255,160,50,.32),transparent 60%);animation:fk 3.4s infinite}
 @keyframes fk{0%,100%{opacity:.9}20%{opacity:.55}40%{opacity:1}60%{opacity:.7}80%{opacity:.95}}
 .toranwrap{position:absolute;top:0;left:0;right:0;z-index:6;filter:drop-shadow(0 10px 8px rgba(0,0,0,.55));pointer-events:none}
-.toran{height:130px;background:url(img/marigold.jpg) center/cover;transform-origin:top center;animation:sway 7s ease-in-out infinite;
+.toran{height:130px;background:url(assets/wada/marigold.jpg) center/cover;transform-origin:top center;animation:sway 7s ease-in-out infinite;
  -webkit-mask:linear-gradient(#000,#000) top/100% 70px no-repeat,radial-gradient(circle at 50% 0,#000 33px,transparent 34px) bottom/68px 60px repeat-x;
  mask:linear-gradient(#000,#000) top/100% 70px no-repeat,radial-gradient(circle at 50% 0,#000 33px,transparent 34px) bottom/68px 60px repeat-x}
 @keyframes sway{50%{transform:rotate(.5deg) translateX(3px)}}
@@ -82,10 +82,10 @@ body.ready .hbg{animation:arrive 3.2s ease-out}
 @keyframes pulse{50%{opacity:.3}}
 
 /* carved band divider (real woodwork photo) */
-.carve{height:120px;background:linear-gradient(rgba(0,0,0,.35),transparent 25%,transparent 75%,rgba(0,0,0,.5)),url(img/woodwork.jpg) center 46%/cover;border-block:3px solid var(--brass);filter:sepia(.3) brightness(.85)}
+.carve{height:120px;background:linear-gradient(rgba(0,0,0,.35),transparent 25%,transparent 75%,rgba(0,0,0,.5)),url(assets/wada/woodwork.jpg) center 46%/cover;border-block:3px solid var(--brass);filter:sepia(.3) brightness(.85)}
 
 /* invitation letter */
-.invite{background:linear-gradient(rgba(12,6,2,.72),rgba(12,6,2,.8)),url(img/facade.jpg) center/cover;filter:none}
+.invite{background:linear-gradient(rgba(12,6,2,.72),rgba(12,6,2,.8)),url(assets/wada/facade.jpg) center/cover;filter:none}
 @media(hover:hover) and (pointer:fine){.invite,.venue,.rsvp{background-attachment:fixed}}
 .letter{max-width:680px;margin:auto;padding:clamp(2.2rem,6vw,4rem) clamp(1.4rem,5vw,3.4rem) 4.4rem;color:var(--ink);position:relative;isolation:isolate;transform:rotate(-.5deg)}
 .letter::before{content:"";position:absolute;inset:0;z-index:-1;filter:url(#rough);
@@ -122,7 +122,7 @@ body.ready .hbg{animation:arrive 3.2s ease-out}
 .ec.feat{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass),0 18px 40px rgba(0,0,0,.6),0 0 40px rgba(201,161,90,.25)}
 
 /* venue */
-.venue{background:linear-gradient(rgba(12,6,2,.78),rgba(12,6,2,.86)),url(img/gate2.jpg) center/cover}
+.venue{background:linear-gradient(rgba(12,6,2,.78),rgba(12,6,2,.86)),url(assets/wada/gate2.jpg) center/cover}
 .vgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem;align-items:center;text-align:left}
 @media(max-width:760px){.vgrid{grid-template-columns:1fr;text-align:center}}
 .vname{font-family:var(--disp);font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.3;color:var(--brass2)}
@@ -143,7 +143,7 @@ body.ready .hbg{animation:arrive 3.2s ease-out}
 #lb p{position:absolute;bottom:2vh;left:0;right:0;text-align:center;color:var(--brass2)}
 
 /* rsvp */
-.rsvp{background:linear-gradient(rgba(12,6,2,.7),rgba(12,6,2,.88)),url(img/diya-rangoli.jpg) center/cover}
+.rsvp{background:linear-gradient(rgba(12,6,2,.7),rgba(12,6,2,.88)),url(assets/wada/diya-rangoli.jpg) center/cover}
 .card{max-width:600px;margin:auto;background:rgba(18,9,4,.72);backdrop-filter:blur(10px);border:1px solid var(--brass);padding:clamp(1.6rem,5vw,3rem);box-shadow:0 30px 60px rgba(0,0,0,.6)}
 .med{width:96px;height:96px;border-radius:50%;margin:-5rem auto 1rem;overflow:hidden;border:3px solid var(--brass);box-shadow:0 10px 24px rgba(0,0,0,.6)}
 .med img{width:100%;height:100%;object-fit:cover;animation:spin 60s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
@@ -167,6 +167,8 @@ details{max-width:760px;margin:1.6rem auto 0;text-align:left;font-size:.85rem;op
 summary{cursor:pointer;text-align:center;color:var(--brass);list-style:none}
 details ul{margin-top:.8rem;padding-left:1.1rem}
 details a{color:var(--brass2)}
+html[lang=mr] *{letter-spacing:normal!important}
+.ttl,.shl,.shri{font-family:"Tiro Devanagari Marathi",serif!important;font-weight:400}
 </style>
 </head>
 <body class="locked">
@@ -174,10 +176,10 @@ details a{color:var(--brass2)}
 
 <!-- INTRO: real photo of the gate; tap and the camera walks through the door -->
 <div id="intro">
-  <div id="cam"><img src="img/gate.jpg" alt="The main gate of a Peshwa-era wada"></div>
+  <div id="cam"><img src="assets/wada/gate.jpg" alt="The main gate of a Peshwa-era wada"></div>
   <div class="shade"></div>
   <div class="ttl"><span data-t="shloka"></span><small><span data-t="guestPre"></span> <b data-guest></b></small></div>
-  <button class="touch" aria-label="Open"><span class="lamp"><img src="img/rangoli.jpg" alt=""></span><span data-t="tap"></span></button>
+  <button class="touch" aria-label="Open"><span class="lamp"><img src="assets/wada/rangoli.jpg" alt=""></span><span data-t="tap"></span></button>
   <div class="black"></div>
 </div>
 
@@ -186,7 +188,7 @@ details a{color:var(--brass2)}
 
 <main>
   <section id="hero">
-    <div class="hbg"><img src="img/courtyard2.jpg" alt="Courtyard of a wada"></div>
+    <div class="hbg"><img src="assets/wada/courtyard2.jpg" alt="Courtyard of a wada"></div>
     <div class="hshade"></div><div class="flick"></div>
     <div class="toranwrap"><div class="toran"></div></div>
     <div class="hin">
@@ -227,9 +229,9 @@ details a{color:var(--brass2)}
     <div class="wrap">
       <h2 class="rv" data-t="coupleTitle"></h2><div class="hair"></div>
       <div class="couple rv">
-        <!-- drop groom.jpg / bride.jpg into wada/img/ to replace the placeholders -->
-        <div><div class="pf"><span>PHOTO</span><img src="img/groom.jpg" alt="" onerror="this.remove()"></div><div class="nm l" data-t="groomFull"></div></div>
-        <div><div class="pf"><span>PHOTO</span><img src="img/bride.jpg" alt="" onerror="this.remove()"></div><div class="nm l" data-t="brideFull"></div></div>
+        <!-- drop groom.jpg / bride.jpg into wada/assets/wada/ to replace the placeholders -->
+        <div><div class="pf"><span>PHOTO</span><img src="assets/wada/groom.jpg" alt="" onerror="this.remove()"></div><div class="nm l" data-t="groomFull"></div></div>
+        <div><div class="pf"><span>PHOTO</span><img src="assets/wada/bride.jpg" alt="" onerror="this.remove()"></div><div class="nm l" data-t="brideFull"></div></div>
       </div>
     </div>
   </section>
@@ -266,7 +268,7 @@ details a{color:var(--brass2)}
   <section class="rsvp">
     <div class="wrap" style="padding-top:8rem">
       <div class="card rv">
-        <div class="med"><img src="img/rangoli.jpg" alt=""></div>
+        <div class="med"><img src="assets/wada/rangoli.jpg" alt=""></div>
         <h2 data-t="rsvpTitle"></h2><p style="opacity:.85" data-t="rsvpSub"></p>
         <form id="rsvp">
           <div><label data-t="nameL"></label><input name="name" required></div>
@@ -289,16 +291,16 @@ details a{color:var(--brass2)}
 
 <div id="lb"><img alt=""><p></p></div>
 
-<script src="../maharashtrian/common.js"></script>
-<script src="img/credits.js"></script>
+<script src="maharashtrian/common.js"></script>
+<script src="assets/wada/credits.js"></script>
 <script>
 const $=s=>document.querySelector(s);
 const EV_IMG=["marigold","turmeric","diya-rangoli","courtyard","facade"];
 const GAL=[["courtyard2","वाड्याचे अंगण","The wada courtyard"],["gate-detail","खिळे जडवलेले द्वार","The studded gate"],["rangoli","रांगोळी व पणती","Rangoli and diya"],
  ["woodwork","कोरीव लाकूडकाम","Carved woodwork"],["marigold","झेंडूची फुले","Marigold"],["facade","वाड्याची दर्शनी बाजू","The façade"],["diya-rangoli","दिव्यांची आरास","A ring of diyas"],["turmeric","हळद","Haldi"]];
 INV.onRender((t,lang)=>{
-  $("#cards").innerHTML=INV.events().map((e,i)=>`<div class="ec rv${i===3?" feat":""}"><div class="ph"><img loading="lazy" src="img/${EV_IMG[i]}.jpg" alt=""></div><div class="bd"><h3>${INV.esc(e[0])}</h3><div class="tm">${INV.esc(e[1])}</div><div class="pl">${INV.esc(e[2])}</div><p>${INV.esc(e[3])}</p></div></div>`).join("");
-  $("#gal").innerHTML=GAL.map(g=>`<figure><img loading="lazy" src="img/${g[0]}.jpg" alt="${g[lang==="mr"?1:2]}"><figcaption>${g[lang==="mr"?1:2]}</figcaption></figure>`).join("");
+  $("#cards").innerHTML=INV.events().map((e,i)=>`<div class="ec rv${i===3?" feat":""}"><div class="ph"><img loading="lazy" src="assets/wada/${EV_IMG[i]}.jpg" alt=""></div><div class="bd"><h3>${INV.esc(e[0])}</h3><div class="tm">${INV.esc(e[1])}</div><div class="pl">${INV.esc(e[2])}</div><p>${INV.esc(e[3])}</p></div></div>`).join("");
+  $("#gal").innerHTML=GAL.map(g=>`<figure><img loading="lazy" src="assets/wada/${g[0]}.jpg" alt="${g[lang==="mr"?1:2]}"><figcaption>${g[lang==="mr"?1:2]}</figcaption></figure>`).join("");
   $("#credits").innerHTML=CREDITS.map(c=>`<li><a href="${c.page}" target="_blank" rel="noopener">${INV.esc(c.title.replace(/\.jpg$/i,""))}</a> — ${INV.esc(c.author)} · <a href="${c.licenseUrl}" target="_blank" rel="noopener">${INV.esc(c.license)}</a></li>`).join("");
 });
 INV.rsvp($("#rsvp"),$("#done"));
