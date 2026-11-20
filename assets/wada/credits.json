@@ -1,21 +1,5 @@
 [
  {
-  "file": "gate.jpg",
-  "title": "Shaniwar Wada Main Gate 01.jpg",
-  "author": "Pravega",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Shaniwar_Wada_Main_Gate_01.jpg"
- },
- {
-  "file": "gate2.jpg",
-  "title": "Shaniwar Wada Main Gate 02.jpg",
-  "author": "Pravega",
-  "license": "CC0",
-  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "page": "https://commons.wikimedia.org/wiki/File:Shaniwar_Wada_Main_Gate_02.jpg"
- },
- {
   "file": "courtyard.jpg",
   "title": "Western courtyard of Vishrambaug Wada, Pune.jpg",
   "author": "DesiBoy101",
@@ -38,14 +22,6 @@
   "license": "CC BY 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Woodwork_on_the_doors_of_Vishrambaug_Wada.jpg"
- },
- {
-  "file": "gate-detail.jpg",
-  "title": "Detail of main gate, Shaniwar Wada, Pune.jpg",
-  "author": "Vis M",
-  "license": "CC BY-SA 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Detail_of_main_gate,_Shaniwar_Wada,_Pune.jpg"
  },
  {
   "file": "diya-rangoli.jpg",
@@ -86,5 +62,61 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Vishrambaug_Wada_View_Courtyard.jpg"
+ },
+ {
+  "file": "drone.jpg",
+  "title": "College of Agriculture Pune (Drone view).jpg",
+  "author": "SBDhanawat",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:College_of_Agriculture_Pune_(Drone_view).jpg"
+ },
+ {
+  "file": "vdoor.jpg",
+  "title": "Wooden Door Vishrambaug Wada, Pune.jpg",
+  "author": "SameerMarathe25",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Wooden_Door_Vishrambaug_Wada,_Pune.jpg"
+ },
+ {
+  "file": "kathavate.jpg",
+  "title": "Kathavate Wada in Wai.jpg",
+  "author": "Wai wada",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Kathavate_Wada_in_Wai.jpg"
+ },
+ {
+  "file": "ganeshpatti.jpg",
+  "title": "गणेशपट्टी.jpg",
+  "author": "आर्या जोशी",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6%E0%A4%AA%E0%A4%9F%E0%A5%8D%E0%A4%9F%E0%A5%80.jpg"
+ },
+ {
+  "file": "rastewada_ext.jpg",
+  "title": "रास्तेवाडा बाह्यदर्शन.jpg",
+  "author": "आर्या जोशी",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:%E0%A4%B0%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%E0%A4%B5%E0%A4%BE%E0%A4%A1%E0%A4%BE_%E0%A4%AC%E0%A4%BE%E0%A4%B9%E0%A5%8D%E0%A4%AF%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%B6%E0%A4%A8.jpg"
+ },
+ {
+  "file": "niche.jpg",
+  "title": "नक्षीदार कोनाडा.jpg",
+  "author": "आर्या जोशी",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:%E0%A4%A8%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A5%80%E0%A4%A6%E0%A4%BE%E0%A4%B0_%E0%A4%95%E0%A5%8B%E0%A4%A8%E0%A4%BE%E0%A4%A1%E0%A4%BE.jpg"
+ },
+ {
+  "file": "raste_part.jpg",
+  "title": "रास्ते वाड्यातील एक भाग.jpg",
+  "author": "आर्या जोशी",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:%E0%A4%B0%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87_%E0%A4%B5%E0%A4%BE%E0%A4%A1%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%80%E0%A4%B2_%E0%A4%8F%E0%A4%95_%E0%A4%AD%E0%A4%BE%E0%A4%97.jpg"
  }
 ]

@@ -1,6 +1,6 @@
 /* Shared engine for all invitation designs: dummy data, Marathi/English, countdown, RSVP, calendar, sound, particles */
 const DATA={
-  date:"2027-02-21T11:36", end:"2027-02-21T15:36", map:"Shaniwar Wada, Pune",
+  date:"2027-02-21T11:36", end:"2027-02-21T15:36", map:"Kasba Peth, Pune",
   mr:{
     shloka:"॥ श्री गणेशाय नमः ॥",
     shloka2:"वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।\nनिर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
@@ -11,14 +11,14 @@ const DATA={
     inviteLead:"सप्रेम नमस्कार,",
     inviteBody:"आमच्या कुटुंबातील मंगल कार्य निश्चित झाले असून, या आनंदाच्या सोहळ्यास आपण सहकुटुंब, सहपरिवार उपस्थित राहून वधू-वरांना शुभाशीर्वाद द्यावेत, ही आग्रहाची विनंती.",
     dateText:"रविवार, २१ फेब्रुवारी २०२७", muhurat:"सकाळी ११:३६ वाजता (शुभ मुहूर्त)",
-    venue:"सरदार कुलकर्णी वाडा", addr:"शनिवार पेठ, पुणे – ४११ ०३०",
+    venue:"सरदार कुलकर्णी वाडा", addr:"कसबा पेठ, पुणे – ४११ ०११",
     tap:"उघडण्यासाठी स्पर्श करा", days:"दिवस", hours:"तास", mins:"मिनिटे", secs:"सेकंद",
     coupleTitle:"वधू-वर", eventsTitle:"सोहळ्याचे कार्यक्रम", venueTitle:"स्थळ", rsvpTitle:"आपली उपस्थिती कळवा",
     rsvpSub:"आपल्या येण्याने आमचा आनंद द्विगुणित होईल.",
     nameL:"आपले नाव", attY:"नक्की येणार", attN:"येता येणार नाही", cnt:"एकूण व्यक्ती", msgL:"शुभेच्छा संदेश", send:"पाठवा",
     thanks:"धन्यवाद! आपली उपस्थिती नोंदवली गेली आहे.", directions:"मार्ग पाहा", cal:"कॅलेंडरमध्ये जोडा", share:"WhatsApp वर पाठवा",
     blessing:"आपले आशीर्वाद हाच आमचा आहेर", family:"देशपांडे व कुलकर्णी परिवार", snehankit:"स्नेहांकित",
-    guestPre:"प्रति,", guestDefault:"आदरणीय पाहुणे", langBtn:"EN", credit:"निमंत्रण रचना", galleryTitle:"आठवणीतला वाडा", creditsTitle:"छायाचित्र श्रेय", mapTitle:"नकाशा",
+    guestPre:"प्रति,", guestDefault:"आदरणीय पाहुणे", langBtn:"EN", credit:"निमंत्रण रचना", galleryTitle:"आठवणीतला वाडा", descend:"वाड्याकडे उतरा", tapDoor:"दरवाजावर स्पर्श करा", creditsTitle:"छायाचित्र श्रेय", mapTitle:"नकाशा",
     events:[
       ["साखरपुडा","शनिवार, २० फेब्रुवारी · सायं. ५:००","वाडा – दिवाणखाना","दोन्ही कुटुंबांचा स्नेहमिलन व साखरपुडा समारंभ."],
       ["हळदी समारंभ","रविवार, २१ फेब्रुवारी · सकाळी ८:००","वाडा – अंगण (चौक)","हळद, गाणी आणि पिवळ्या रंगांची उधळण."],
@@ -37,14 +37,14 @@ const DATA={
     inviteLead:"With warm greetings,",
     inviteBody:"With the blessings of the Almighty, our families joyfully invite you and your family to grace the wedding ceremony and bless the couple.",
     dateText:"Sunday, 21 February 2027", muhurat:"11:36 AM (auspicious muhurat)",
-    venue:"Sardar Kulkarni Wada", addr:"Shaniwar Peth, Pune – 411 030",
+    venue:"Sardar Kulkarni Wada", addr:"Kasba Peth, Pune – 411 011",
     tap:"Tap to open", days:"Days", hours:"Hours", mins:"Mins", secs:"Secs",
     coupleTitle:"The Couple", eventsTitle:"Celebrations", venueTitle:"The Venue", rsvpTitle:"Kindly reply",
     rsvpSub:"Your presence will double our joy.",
     nameL:"Your name", attY:"Joyfully attending", attN:"Unable to attend", cnt:"Total guests", msgL:"A message for the couple", send:"Send",
     thanks:"Thank you! Your reply has been recorded.", directions:"Get directions", cal:"Add to calendar", share:"Share on WhatsApp",
     blessing:"Your blessings are our greatest gift", family:"The Deshpande & Kulkarni families", snehankit:"With love",
-    guestPre:"To,", guestDefault:"Our Dear Guest", langBtn:"मराठी", credit:"Invitation crafted by", galleryTitle:"Glimpses of the wada", creditsTitle:"Photo credits", mapTitle:"Map",
+    guestPre:"To,", guestDefault:"Our Dear Guest", langBtn:"मराठी", credit:"Invitation crafted by", galleryTitle:"Glimpses of the wada", descend:"Descend to the wada", tapDoor:"Tap the door to open", creditsTitle:"Photo credits", mapTitle:"Map",
     events:[
       ["Sakharpuda","Saturday, 20 Feb · 5:00 PM","Wada – Diwankhana","Engagement and family gathering."],
       ["Haldi","Sunday, 21 Feb · 8:00 AM","Wada – Courtyard (Chowk)","Turmeric, songs and a burst of yellow."],

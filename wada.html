@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wada Vivah Patrika</title>
 <meta name="description" content="A cinematic wedding invitation set in a Peshwa-era wada.">
-<link rel="preload" as="image" href="assets/wada/gate.jpg">
+<link rel="preload" as="image" href="assets/wada/drone.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
 <style>
 :root{--brass:#c9a15a;--brass2:#f0d28f;--wood:#1b110a;--wood2:#2b1a10;--ink:#3a2414;--kum:#a3231f;--light:#f3e6c8;
@@ -20,25 +20,71 @@ img{display:block}
 body::after{content:"";position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.13;mix-blend-mode:overlay;
  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 
-/* ============ INTRO: walk through the real gate ============ */
-#intro{position:fixed;inset:0;z-index:600;background:#0a0603;overflow:hidden;cursor:pointer;transition:opacity 1.8s ease,visibility 1.8s}
+/* ============ INTRO: drone descent -> the real wada door -> walk in ============ */
+#intro{position:fixed;inset:0;z-index:600;background:#0a0603;overflow:hidden;transition:opacity 1.6s ease,visibility 1.6s}
 #intro.gone{opacity:0;visibility:hidden}
-#cam{position:absolute;inset:0;will-change:transform,filter}
-#cam img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;filter:sepia(.28) saturate(1.1) contrast(1.06) brightness(.82)}
-.shade{position:absolute;inset:0;pointer-events:none;
- background:linear-gradient(180deg,rgba(12,6,2,.78),rgba(12,6,2,.08) 34%,rgba(40,16,0,.12) 62%,rgba(8,4,1,.85)),radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.55))}
-.black{position:absolute;inset:0;background:#0a0603;opacity:0;pointer-events:none}
-.ttl{position:absolute;top:6vh;left:0;right:0;text-align:center;font-family:var(--disp);font-size:clamp(1.3rem,4.4vw,2.6rem);color:var(--brass2);text-shadow:0 0 20px rgba(255,170,60,.65),0 2px 6px #000;transition:opacity .6s}
-.ttl small{display:block;font-family:var(--body);font-size:clamp(.85rem,2vw,1.05rem);color:var(--light);letter-spacing:.12em;margin-top:.2rem;opacity:.85}
-.touch{position:absolute;left:50%;bottom:7vh;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.6rem;background:none;border:0;color:var(--light);cursor:pointer;transition:opacity .5s;text-shadow:0 2px 8px #000}
-.lamp{width:84px;height:84px;border-radius:50%;overflow:hidden;border:3px solid var(--brass);box-shadow:0 0 0 0 rgba(255,180,70,.6);animation:ring 2.4s infinite}
-.lamp img{width:100%;height:100%;object-fit:cover}
-@keyframes ring{70%{box-shadow:0 0 0 22px rgba(255,180,70,0)}100%{box-shadow:0 0 0 0 rgba(255,180,70,0)}}
-#intro.open .ttl,#intro.open .touch{opacity:0}
-#intro.open #cam{animation:dolly 3.8s cubic-bezier(.45,0,.75,.5) forwards}
-#intro.open .black{animation:blackout 1.4s 2.2s ease-in forwards}
-@keyframes dolly{to{transform:scale(3.3);filter:blur(2.5px)}}
+.stage{position:absolute;inset:0}
+@keyframes ringp{70%{box-shadow:0 0 0 24px rgba(255,200,110,0)}100%{box-shadow:0 0 0 0 rgba(255,200,110,0)}}
+
+/* A: drone view */
+#A{cursor:pointer;transition:opacity 2.2s ease .9s,transform 3.4s cubic-bezier(.5,0,.8,.4),filter 2.4s ease}
+#intro.descend #A{opacity:0;transform:scale(2.9);filter:blur(6px);pointer-events:none}
+.aer{position:absolute;inset:0;overflow:hidden}
+.aer img,.aer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.25) saturate(1.1) contrast(1.05) brightness(.74);animation:push 28s ease-out forwards}
+@keyframes push{from{transform:scale(1.02)}to{transform:scale(1.22) translate(-1.5%,1%)}}
+.ashade{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,5,2,.4),rgba(10,5,2,.8) 88%),linear-gradient(180deg,rgba(10,5,2,.6),transparent 28%,rgba(10,5,2,.75))}
+.atext{position:absolute;left:0;right:0;top:50%;transform:translateY(-54%);text-align:center;padding:0 1.2rem;text-shadow:0 2px 14px #000}
+.atext .s1{font-family:'Tiro Devanagari Marathi',serif;font-size:clamp(1.5rem,5vw,2.8rem);color:var(--brass2);text-shadow:0 0 22px rgba(255,170,60,.6),0 2px 8px #000}
+.atext .s2{white-space:pre-line;font-style:italic;font-size:clamp(1rem,2.6vw,1.35rem);margin:.4rem 0 1.4rem;color:var(--light)}
+.atext .w{font-family:var(--disp);color:var(--brass);font-size:clamp(1.1rem,3vw,1.6rem)}
+.atext .n{font-family:var(--disp);font-size:clamp(2.6rem,10vw,6rem);line-height:1.2;color:#fff3d8}
+.atext .n i{font-style:normal;color:var(--brass);font-size:.45em;margin:0 .35em}
+.atext .d{color:var(--brass2);font-size:clamp(1rem,2.6vw,1.35rem)}
+.atext .g{opacity:.85;margin-top:.7rem;font-size:.95rem}
+@media(max-width:560px){.atext .n span{display:block}.atext .n i{display:block;margin:0;line-height:1}.atext .n{font-size:clamp(2.6rem,15vw,4.4rem)}}
+.go{position:absolute;left:50%;bottom:9vh;transform:translateX(-50%);z-index:5;background:rgba(20,10,5,.55);backdrop-filter:blur(6px);color:var(--brass2);border:1px solid var(--brass);padding:.55rem 1.7rem;font-family:var(--disp);font-size:1.15rem;cursor:pointer;animation:pulse 2.4s infinite}
+/* drone HUD */
+.hud{position:absolute;inset:0;z-index:8;pointer-events:none;font-family:ui-monospace,Consolas,monospace;font-size:clamp(.7rem,1.6vw,.9rem);color:rgba(255,236,200,.92);text-shadow:0 1px 4px #000;transition:opacity 1s}
+#intro.ready2 .hud,#intro.open .hud{opacity:0}
+.hud>*{position:absolute}
+.hud .rec{top:20px;left:24px}.hud .rec::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:#e33;margin-right:8px;animation:pulse 1.2s infinite}
+.hud .alt{top:20px;left:50%;transform:translateX(-50%)}
+.hud .pos{bottom:20px;left:24px}.hud .spd{bottom:20px;right:24px}
+.hud .br{width:26px;height:26px;border:2px solid rgba(255,236,200,.65)}
+.hud .br.a{top:8px;left:8px;border-right:0;border-bottom:0}.hud .br.b{top:8px;right:8px;border-left:0;border-bottom:0}
+.hud .br.c{bottom:8px;left:8px;border-right:0;border-top:0}.hud .br.d{bottom:8px;right:8px;border-left:0;border-top:0}
+
+/* B: the real wada door */
+#B{--h:min(80vh,calc(100vw / .555));--W:calc(var(--h) * .555);--iw:calc(var(--W) / .86);opacity:0;pointer-events:none;transition:opacity 2.2s ease 1.3s;background:radial-gradient(ellipse at 50% 40%,#2a1608,#0d0703 80%)}
+#intro.descend #B{opacity:1}
+#intro.ready2 #B{pointer-events:auto}
+.bgblur{position:absolute;inset:-6%;background:url(assets/wada/vdoor.jpg) center/cover;filter:blur(22px) brightness(.36) saturate(1.2)}
+.btitle{position:absolute;top:2.5vh;left:0;right:0;text-align:center;z-index:6;color:var(--brass2);font-family:'Tiro Devanagari Marathi',serif;font-size:clamp(1.2rem,3.6vw,2.1rem);text-shadow:0 0 18px rgba(255,170,60,.55),0 2px 6px #000;transition:opacity .8s}
+.btitle small{display:block;font-size:clamp(.85rem,2vw,1rem);color:var(--light);opacity:.85}
+.walk{position:absolute;inset:0;padding-top:10vh;display:grid;place-items:center;transform-origin:calc(50% - .021 * var(--W)) calc(50% + 5vh + .099 * var(--h))}
+#intro.entering .walk{animation:walkin 2.9s cubic-bezier(.55,0,.8,.45) forwards}
+@keyframes walkin{to{transform:scale(6.4);filter:blur(1.5px) brightness(1.2)}}
+.dscene{position:relative;height:var(--h);width:var(--W);background:url(assets/wada/vdoor.jpg) calc(var(--iw) * -.06) calc(var(--iw) * -.184)/var(--iw) auto no-repeat;
+ filter:sepia(.18) saturate(1.1) contrast(1.05);box-shadow:0 30px 80px rgba(0,0,0,.8);
+ -webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse at 50% 50%,#000 62%,transparent 100%)}
+.reg{position:absolute;left:18.6%;top:26.15%;width:58.6%;height:67.55%;perspective:1400px;cursor:pointer}
+.opening{position:absolute;inset:0;overflow:hidden;background:#150b05}
+.opening img{width:100%;height:100%;object-fit:cover;filter:sepia(.2) brightness(1.05)}
+.opening::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,170,70,.4),transparent 70%);mix-blend-mode:screen}
+.leaf{position:absolute;top:0;height:100%;width:50%;background:url(assets/wada/vdoor.jpg) no-repeat;background-size:var(--iw) auto;transition:transform 2.5s cubic-bezier(.5,0,.2,1),filter 2.5s;backface-visibility:hidden}
+.leaf.l{left:0;transform-origin:0 50%;background-position:calc(var(--iw) * -.220) calc(var(--iw) * -.5889)}
+.leaf.r{left:50%;transform-origin:100% 50%;background-position:calc(var(--iw) * -.472) calc(var(--iw) * -.5889)}
+#intro.open .leaf.l{transform:rotateY(98deg);filter:brightness(.3)}
+#intro.open .leaf.r{transform:rotateY(-98deg);filter:brightness(.3)}
+.reg:hover .leaf{filter:brightness(1.12)}
+.knock{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px;border-radius:50%;border:2px solid rgba(255,220,150,.9);animation:ringp 2s infinite;pointer-events:none;transition:opacity .5s}
+#intro.open .knock,#intro.open .btitle,#intro.open .bhint{opacity:0}
+.bhint{position:absolute;bottom:2.2vh;left:0;right:0;text-align:center;z-index:6;color:var(--brass2);font-family:var(--disp);font-size:1.2rem;text-shadow:0 2px 8px #000;animation:pulse 2.4s infinite;transition:opacity .6s}
+.black{position:absolute;inset:0;z-index:9;background:#0a0603;opacity:0;pointer-events:none}
+#intro.entering .black{animation:blackout 1.1s 1.7s ease-in forwards}
 @keyframes blackout{to{opacity:1}}
+/* painted Ganesh lintel (real photo) at the top of the letter */
+.gp{height:clamp(70px,13vw,112px);margin:-.8rem -.6rem 1.2rem;background:url(assets/wada/ganeshpatti.jpg) 50% 69%/cover;border:3px solid #8a5a2a;box-shadow:inset 0 0 22px rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.35)}
 
 .langbtn{position:fixed;top:14px;right:14px;z-index:650;background:rgba(20,10,5,.7);backdrop-filter:blur(6px);color:var(--brass2);border:1px solid var(--brass);padding:.1rem 1rem;border-radius:20px;cursor:pointer;font-family:var(--disp)}
 #dust{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
@@ -122,7 +168,7 @@ body.ready .hbg{animation:arrive 3.2s ease-out}
 .ec.feat{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass),0 18px 40px rgba(0,0,0,.6),0 0 40px rgba(201,161,90,.25)}
 
 /* venue */
-.venue{background:linear-gradient(rgba(12,6,2,.78),rgba(12,6,2,.86)),url(assets/wada/gate2.jpg) center/cover}
+.venue{background:linear-gradient(rgba(12,6,2,.78),rgba(12,6,2,.86)),url(assets/wada/rastewada_ext.jpg) center/cover}
 .vgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:2rem;align-items:center;text-align:left}
 @media(max-width:760px){.vgrid{grid-template-columns:1fr;text-align:center}}
 .vname{font-family:var(--disp);font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.3;color:var(--brass2)}
@@ -174,12 +220,42 @@ html[lang=mr] *{letter-spacing:normal!important}
 <body class="locked">
 <svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="10"/></filter></svg>
 
-<!-- INTRO: real photo of the gate; tap and the camera walks through the door -->
+<!-- INTRO: A) drone view over Pune with the Vakratunda shloka + invitation text, B) the real wada door -->
 <div id="intro">
-  <div id="cam"><img src="assets/wada/gate.jpg" alt="The main gate of a Peshwa-era wada"></div>
-  <div class="shade"></div>
-  <div class="ttl"><span data-t="shloka"></span><small><span data-t="guestPre"></span> <b data-guest></b></small></div>
-  <button class="touch" aria-label="Open"><span class="lamp"><img src="assets/wada/rangoli.jpg" alt=""></span><span data-t="tap"></span></button>
+  <div class="stage" id="A">
+    <div class="aer">
+      <img src="assets/wada/drone.jpg" alt="Aerial view over Pune">
+      <!-- optional: drop your own venue footage at assets/wada/drone.mp4 and it plays here -->
+      <video muted loop playsinline autoplay preload="auto"><source src="assets/wada/drone.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+    </div>
+    <div class="ashade"></div>
+    <div class="atext">
+      <div class="s1" data-t="shloka"></div>
+      <div class="s2" data-t="shloka2"></div>
+      <div class="w" data-t="wedsWord"></div>
+      <div class="n"><span data-t="groom"></span><i>❖</i><span data-t="bride"></span></div>
+      <div class="d" data-t="dateText"></div>
+      <div class="g"><span data-t="guestPre"></span> <b data-guest></b></div>
+    </div>
+    <button class="go" id="go"><span data-t="descend"></span> ▾</button>
+  </div>
+
+  <div class="stage" id="B">
+    <div class="bgblur"></div>
+    <div class="btitle"><span data-t="shloka"></span><small><span data-t="guestPre"></span> <b data-guest></b></small></div>
+    <div class="walk"><div class="dscene">
+      <div class="reg" id="reg">
+        <div class="opening"><img src="assets/wada/courtyard.jpg" alt=""></div>
+        <div class="leaf l"></div><div class="leaf r"></div>
+        <span class="knock"></span>
+      </div>
+    </div></div>
+    <div class="bhint" data-t="tapDoor"></div>
+  </div>
+
+  <div class="hud"><span class="br a"></span><span class="br b"></span><span class="br c"></span><span class="br d"></span>
+    <span class="rec">REC · 4K · 30FPS</span><span class="alt">ALT <b id="alt">118</b> m</span>
+    <span class="pos">N 18.5210° · E 73.8560°</span><span class="spd">SPD <b id="spd">3.4</b> m/s</span></div>
   <div class="black"></div>
 </div>
 
@@ -208,6 +284,7 @@ html[lang=mr] *{letter-spacing:normal!important}
   <section class="invite">
     <div class="wrap">
       <div class="letter rv">
+        <div class="gp"></div>
         <div class="shl" data-t="shloka"></div>
         <p class="sm" data-t="inviteLead"></p>
         <p data-t="inviteBody"></p>
@@ -253,7 +330,7 @@ html[lang=mr] *{letter-spacing:normal!important}
           <a class="btn" data-ics data-t="cal"></a>
           <a class="btn" data-share target="_blank" rel="noopener" data-t="share"></a>
         </div>
-        <div class="map rv"><iframe loading="lazy" title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=73.8480%2C18.5165%2C73.8625%2C18.5225&amp;layer=mapnik&amp;marker=18.5195%2C73.8553"></iframe></div>
+        <div class="map rv"><iframe loading="lazy" title="Map" src="https://www.openstreetmap.org/export/embed.html?bbox=73.8500%2C18.5180%2C73.8620%2C18.5240&amp;layer=mapnik&amp;marker=18.5210%2C73.8560"></iframe></div>
       </div>
     </div>
   </section>
@@ -296,8 +373,8 @@ html[lang=mr] *{letter-spacing:normal!important}
 <script>
 const $=s=>document.querySelector(s);
 const EV_IMG=["marigold","turmeric","diya-rangoli","courtyard","facade"];
-const GAL=[["courtyard2","वाड्याचे अंगण","The wada courtyard"],["gate-detail","खिळे जडवलेले द्वार","The studded gate"],["rangoli","रांगोळी व पणती","Rangoli and diya"],
- ["woodwork","कोरीव लाकूडकाम","Carved woodwork"],["marigold","झेंडूची फुले","Marigold"],["facade","वाड्याची दर्शनी बाजू","The façade"],["diya-rangoli","दिव्यांची आरास","A ring of diyas"],["turmeric","हळद","Haldi"]];
+const GAL=[["courtyard2","वाड्याचे अंगण","The wada courtyard"],["ganeshpatti","गणेशपट्टी","Painted Ganesh frieze"],["rastewada_ext","वाड्याची दर्शनी बाजू","A wada façade"],["rangoli","रांगोळी व पणती","Rangoli and diya"],
+ ["woodwork","कोरीव लाकूडकाम","Carved woodwork"],["kathavate","वाड्यातील अंगण","A wada courtyard, Wai"],["marigold","झेंडूची फुले","Marigold"],["niche","नक्षीदार कोनाडा","A carved niche"],["diya-rangoli","दिव्यांची आरास","A ring of diyas"],["turmeric","हळद","Haldi"]];
 INV.onRender((t,lang)=>{
   $("#cards").innerHTML=INV.events().map((e,i)=>`<div class="ec rv${i===3?" feat":""}"><div class="ph"><img loading="lazy" src="assets/wada/${EV_IMG[i]}.jpg" alt=""></div><div class="bd"><h3>${INV.esc(e[0])}</h3><div class="tm">${INV.esc(e[1])}</div><div class="pl">${INV.esc(e[2])}</div><p>${INV.esc(e[3])}</p></div></div>`).join("");
   $("#gal").innerHTML=GAL.map(g=>`<figure><img loading="lazy" src="assets/wada/${g[0]}.jpg" alt="${g[lang==="mr"?1:2]}"><figcaption>${g[lang==="mr"?1:2]}</figcaption></figure>`).join("");
@@ -314,17 +391,28 @@ document.addEventListener("click",e=>{
   else if(e.target.closest("#lb"))$("#lb").classList.remove("show");
 });
 
-/* intro: aim the camera dolly at the real door in the photo (door ~ 52.7% x, 59% y of the 1920x1440 image) */
-const intro=$("#intro"),cam=$("#cam");
-function aim(){
-  const W=innerWidth,H=innerHeight,s=Math.max(W/1920,H/1440),w=1920*s,h=1440*s;
-  cam.style.transformOrigin=`${(W-w)/2+.527*w}px ${(H-h)*.55+.59*h}px`;
+/* intro: A) drone view -> B) real wada door -> tap the door -> leaves swing open -> walk in */
+const intro=$("#intro");
+function tween(from,to,ms,fn){const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);fn(from+(to-from)*e);if(k<1)requestAnimationFrame(f)})(t0)}
+function creak(){ /* synthesised old-hinge creak */
+  try{const C=new (window.AudioContext||window.webkitAudioContext)(),t=C.currentTime,o=C.createOscillator(),l=C.createOscillator(),lg=C.createGain(),f=C.createBiquadFilter(),g=C.createGain();
+    o.type="sawtooth";o.frequency.setValueAtTime(72,t);o.frequency.linearRampToValueAtTime(46,t+2);l.frequency.value=19;lg.gain.value=9;l.connect(lg);lg.connect(o.frequency);
+    f.type="bandpass";f.frequency.value=420;f.Q.value=2.5;g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.11,t+.3);g.gain.exponentialRampToValueAtTime(.0001,t+2.1);
+    o.connect(f);f.connect(g);g.connect(C.destination);o.start();l.start();o.stop(t+2.2);l.stop(t+2.2)}catch(e){}
 }
-addEventListener("resize",aim);aim();
-intro.addEventListener("click",()=>{
-  if(intro.classList.contains("open"))return;
-  intro.classList.add("open");INV.bell();
-  setTimeout(()=>{intro.classList.add("gone");document.body.classList.remove("locked");document.body.classList.add("ready")},3700);
+function descend(){
+  if(intro.classList.contains("descend"))return;
+  intro.classList.add("descend");
+  tween(118,3,3200,v=>$("#alt").textContent=Math.round(v));
+  tween(3.4,.4,3200,v=>$("#spd").textContent=v.toFixed(1));
+  setTimeout(()=>intro.classList.add("ready2"),2900);
+}
+$("#A").addEventListener("click",descend);
+$("#reg").addEventListener("click",()=>{
+  if(!intro.classList.contains("ready2")||intro.classList.contains("open"))return;
+  intro.classList.add("open");INV.bell();creak();
+  setTimeout(()=>intro.classList.add("entering"),1500);
+  setTimeout(()=>{intro.classList.add("gone");document.body.classList.remove("locked");document.body.classList.add("ready")},4700);
 });
 </script>
 </body>
