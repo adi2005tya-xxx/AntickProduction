@@ -5,8 +5,8 @@ Plain static HTML/CSS/JS, so there is no build step.
 
 | Path | What it is |
 |------|-----------|
-| `/` | Generic wedding invitation prototype with live customizer |
-| `/maharashtrian` | Chooser for the three Maharashtrian designs |
+| `/` | Chooser for the Maharashtrian designs |
+| `/generic` | Generic wedding invitation prototype with live customizer |
 | `/maharashtrian/wada` | Ancient wada: carved doors, scroll, toran, diyas |
 | `/maharashtrian/paithani` | Paithani silk: zari cloth that splits open |
 | `/maharashtrian/antarpat` | Antarpat: modern, colourful, petals and rice |
