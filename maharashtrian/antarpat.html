@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Antarpat Vivah Patrika</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&family=Yatra+One&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff7e6;--haldi:#f7c52b;--kum:#c1121f;--leaf:#2e6b3f;--saf:#e8511a;--plum:#4a1d5c;--ink:#2a1b12;--disp:'Yatra One','Mukta',serif;--body:'Mukta',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.7;font-size:1.1rem;overflow-x:hidden}
+body.locked{overflow:hidden;height:100vh}
+button,input,select,textarea{font:inherit}
+#bar{position:fixed;top:0;left:0;height:5px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--kum),var(--saf),var(--haldi));z-index:400}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:350}
+.langbtn{position:fixed;top:14px;right:14px;z-index:320;background:var(--ink);color:var(--haldi);border:0;padding:.25rem 1rem;border-radius:20px;cursor:pointer;font-weight:600}
+
+/* ===== INTRO: antarpat ===== */
+#intro{position:fixed;inset:0;z-index:300;cursor:pointer;display:grid;place-items:start center;padding-top:46px;overflow:hidden;
+ background:radial-gradient(circle at 50% 40%,#fffaf0,#f3dfb4);transition:opacity 1s .9s,visibility 0s 1.9s}
+#intro.open{opacity:0;visibility:hidden}
+.rod{position:absolute;top:0;left:0;right:0;height:46px;z-index:3;background:linear-gradient(#a8742a,#5a3510 60%,#8a5a1c);box-shadow:0 6px 14px rgba(0,0,0,.3)}
+.garland{position:absolute;top:40px;width:22px;z-index:3;height:30vh;background:radial-gradient(circle at 50% 12px,#f7a21b 0 9px,transparent 10px) 0 0/22px 24px repeat-y}
+.garland.l{left:6%}.garland.r{right:6%}
+.cloth{width:min(80vw,440px);height:min(70vh,600px);position:relative;transform-origin:50% 0;animation:sway 5s ease-in-out infinite;
+ background:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 2px,transparent 2px 5px),repeating-linear-gradient(90deg,rgba(0,0,0,.025) 0 2px,transparent 2px 5px),#fffdf6;
+ border:14px solid var(--kum);box-shadow:inset 0 0 0 8px #fffdf6,inset 0 0 0 14px var(--haldi),0 30px 40px rgba(60,20,0,.35);
+ display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem}
+@keyframes sway{50%{transform:rotate(1.4deg)}}
+#intro.open .cloth{animation:drop 1.7s cubic-bezier(.55,0,1,.55) forwards}
+@keyframes drop{to{transform:translateY(125vh) rotate(8deg)}}
+.cloth svg{width:min(30vw,130px)}
+.cloth h3{font-family:var(--disp);font-weight:400;color:var(--kum);font-size:clamp(1.5rem,5.4vw,2.4rem);margin:.8rem 0 .2rem;line-height:1.3}
+.cloth p{color:#6b4a2d}
+.hint{position:absolute;bottom:5vh;left:0;right:0;text-align:center;z-index:4;font-weight:600;letter-spacing:.08em;animation:pulse 2.2s infinite;color:var(--kum);transition:opacity .4s}
+#intro.open .hint{opacity:0}
+@keyframes pulse{50%{opacity:.3}}
+
+/* ===== page ===== */
+main{opacity:0;transition:opacity 1.2s .6s}
+body.ready main{opacity:1}
+section{padding:clamp(3.5rem,8vw,6rem) clamp(1.2rem,5vw,3rem)}
+.wrap{max-width:1000px;margin:auto}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s}.rv.in{opacity:1;transform:none}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(2.2rem,7vw,4rem);line-height:1.15}
+.mq{overflow:hidden;white-space:nowrap;background:var(--kum);color:var(--haldi);font-family:var(--disp);font-size:1.3rem;padding:.4rem 0;border-block:3px solid var(--ink)}
+.mq div{display:inline-block;animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+#hero{text-align:center;position:relative;overflow:hidden;padding-top:3rem}
+.sh{font-family:var(--disp);color:var(--kum);font-size:1.4rem}
+.names{font-family:var(--disp);font-weight:400;font-size:clamp(4rem,19vw,11rem);line-height:.95;margin:.4rem 0}
+.names span{display:inline-block;opacity:0;transform:translateY(60px) rotate(3deg);transition:opacity 1s,transform 1s cubic-bezier(.2,1.2,.4,1)}
+body.ready .names span{opacity:1;transform:none}
+body.ready .names span:nth-child(2){transition-delay:.25s}body.ready .names span:nth-child(3){transition-delay:.5s}
+.n1{background:linear-gradient(transparent 62%,var(--haldi) 62% 92%,transparent 92%)}
+.n2{color:var(--kum)}
+.amp{display:block !important;font-size:.3em;color:var(--leaf)}
+.stamp{position:absolute;right:max(3vw,10px);top:70px;width:clamp(96px,17vw,150px);animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stamp text{font-family:var(--disp);font-size:19px;fill:var(--kum)}
+.polas{display:flex;justify-content:center;gap:clamp(.6rem,3vw,2rem);margin:3.4rem 0 2.2rem;flex-wrap:wrap}
+.pola{background:#fff;padding:10px 10px 38px;width:clamp(120px,26vw,190px);box-shadow:0 12px 26px rgba(60,20,0,.28);transition:transform .5s;position:relative}
+.pola:nth-child(1){transform:rotate(-5deg)}.pola:nth-child(2){transform:translateY(-14px) rotate(2deg)}.pola:nth-child(3){transform:rotate(5deg)}
+.pola:hover{transform:rotate(0) scale(1.06);z-index:2}
+.pola .ph{aspect-ratio:3/4;position:relative;overflow:hidden}
+.pola svg{position:absolute;inset:0;width:100%;height:100%}
+.pola b{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:var(--disp);font-weight:400;color:var(--ink)}
+.dt{font-family:var(--disp);font-size:clamp(1.3rem,4vw,2rem)}
+.mu{color:#6b4a2d}
+
+.invite{background:var(--ink);color:var(--cream);text-align:center}
+.invite .big{font-family:var(--disp);font-size:clamp(1.5rem,4.6vw,2.6rem);line-height:1.5}
+.invite .big em{font-style:normal;color:var(--haldi)}
+.invite p{max-width:700px;margin:1rem auto;opacity:.9}
+.invite .ln{color:var(--haldi);font-family:var(--disp);font-size:1.6rem;margin-top:1.6rem}
+
+.evs{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1rem clamp(1.2rem,5vw,3rem) 2rem;scrollbar-width:thin}
+.ec{flex:0 0 min(76vw,290px);scroll-snap-align:center;border-radius:26px;padding:1.6rem;min-height:330px;display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 14px 30px rgba(60,20,0,.25);transition:transform .4s}
+.ec:hover{transform:translateY(-8px) rotate(-1deg)}
+.ec .ix{position:absolute;right:-8px;top:-30px;font-family:var(--disp);font-size:9rem;opacity:.13;line-height:1}
+.ec .em{font-size:3rem}
+.ec h3{font-family:var(--disp);font-weight:400;font-size:1.9rem;line-height:1.25;margin-top:auto}
+.ec .tm{font-weight:600}.ec p{font-size:.95rem;opacity:.9}
+.hint2{text-align:center;color:#6b4a2d;font-weight:600;letter-spacing:.1em}
+
+.save{background:var(--haldi);text-align:center}
+.cal{display:inline-block;background:var(--cream);border:4px solid var(--ink);border-radius:18px;overflow:hidden;width:170px;box-shadow:8px 8px 0 var(--ink);transform:rotate(-3deg)}
+.cal i{display:block;background:var(--kum);color:var(--cream);font-style:normal;font-weight:800;letter-spacing:.2em;padding:.2rem}
+.cal b{display:block;font-family:var(--disp);font-weight:400;font-size:5.4rem;line-height:1.1}
+.cal span{display:block;padding-bottom:.4rem;font-weight:600}
+.cd{display:flex;gap:clamp(.5rem,2vw,1rem);justify-content:center;margin:2rem 0;flex-wrap:wrap}
+.cd-u{background:var(--ink);color:var(--haldi);border-radius:20px;min-width:80px;padding:.6rem .4rem;line-height:1.2}
+.cd-u b{display:block;font-family:var(--disp);font-weight:400;font-size:2rem}.cd-u span{font-size:.8rem;color:var(--cream)}
+.btn{display:inline-block;margin:.4rem;padding:.7rem 1.8rem;border-radius:40px;border:3px solid var(--ink);background:var(--cream);color:var(--ink);font-weight:800;text-decoration:none;cursor:pointer;transition:.25s;box-shadow:4px 4px 0 var(--ink)}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn.k{background:var(--kum);color:var(--cream)}.btn.g{background:var(--leaf);color:#fff}
+
+.venue{background:var(--leaf);color:var(--cream)}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+@media(max-width:720px){.vgrid{grid-template-columns:1fr}}
+.map{aspect-ratio:4/3;border-radius:24px;border:4px solid var(--ink);background:
+ linear-gradient(90deg,rgba(255,255,255,.25) 2px,transparent 2px) 0 0/44px 44px,linear-gradient(rgba(255,255,255,.25) 2px,transparent 2px) 0 0/44px 44px,#f1dfb0;position:relative;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.map::before{content:"";position:absolute;left:-10%;right:-10%;top:48%;height:26px;background:#e8511a;transform:rotate(-12deg);opacity:.85}
+.map::after{content:"";position:absolute;top:-10%;bottom:-10%;left:62%;width:20px;background:#7fb7d6;transform:rotate(8deg)}
+.pin{position:absolute;left:46%;top:30%;font-size:3rem;z-index:2;animation:hop 1.3s ease-in-out infinite;filter:drop-shadow(0 8px 4px rgba(0,0,0,.3))}
+@keyframes hop{50%{transform:translateY(-14px)}}
+.vname{font-family:var(--disp);font-size:clamp(1.8rem,5vw,3rem);line-height:1.2;color:var(--haldi)}
+
+.rsvp{background:var(--plum);color:var(--cream)}
+.rsvp .box{background:var(--cream);color:var(--ink);border-radius:30px;padding:clamp(1.4rem,5vw,3rem);max-width:640px;margin:auto;border:4px solid var(--ink);box-shadow:10px 10px 0 var(--haldi)}
+form{display:grid;gap:1rem;text-align:left;margin-top:1rem}
+label{font-weight:600;font-size:.95rem}
+input,select,textarea{width:100%;border:3px solid var(--ink);border-radius:16px;padding:.6rem 1rem;background:#fff;outline:0}
+input:focus,select:focus,textarea:focus{border-color:var(--kum)}
+.choice{display:flex;gap:.6rem;flex-wrap:wrap}
+.choice label{flex:1;min-width:150px;text-align:center;border:3px solid var(--ink);border-radius:40px;padding:.5rem;cursor:pointer}
+.choice input{display:none}.choice label:has(input:checked){background:var(--haldi)}
+.done{display:none;font-family:var(--disp);font-size:1.6rem;color:var(--leaf);margin-top:1rem;text-align:center}.done.show{display:block;animation:pop .8s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.6)}}
+footer{background:var(--ink);color:var(--cream);text-align:center;padding:3rem 1rem}
+footer .bl{font-family:var(--disp);font-size:clamp(1.4rem,4vw,2.2rem);color:var(--haldi)}
+</style>
+</head>
+<body class="locked">
+<div id="bar"></div>
+<canvas id="fx"></canvas>
+<button class="langbtn" data-lang></button>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="rod"></div><div class="garland l"></div><div class="garland r"></div>
+  <div class="cloth">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#c1121f" stroke-width="8" stroke-linecap="square"><path d="M50 12v76M12 50h76M50 12h22M88 50v22M50 88H28M12 50V28"/><g fill="#f7c52b" stroke="none"><circle cx="30" cy="30" r="4"/><circle cx="70" cy="30" r="4"/><circle cx="30" cy="70" r="4"/><circle cx="70" cy="70" r="4"/></g></svg>
+    <h3>॥ शुभ मंगल सावधान ॥</h3>
+    <p><span data-t="guestPre"></span> <b data-guest></b></p>
+  </div>
+  <div class="hint" data-t="tap"></div>
+</div>
+
+<main>
+  <div class="mq"><div id="mq1"></div></div>
+
+  <section id="hero">
+    <svg class="stamp" viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#cp">शुभविवाह • २१ फेब्रु २०२७ • पुणे • शुभविवाह • </textPath></text><circle cx="100" cy="100" r="22" fill="#f7c52b"/><text x="100" y="109" text-anchor="middle" style="font-size:26px;fill:#c1121f">❤</text></svg>
+    <div class="sh" data-t="shloka"></div>
+    <h1 class="names"><span class="n1" data-t="groom"></span><span class="amp">❤</span><span class="n2" data-t="bride"></span></h1>
+    <div class="polas rv">
+      <div class="pola"><div class="ph" style="background:linear-gradient(160deg,#f7c52b,#e8511a)"><svg viewBox="0 0 100 130"><circle cx="50" cy="55" r="20" fill="#6b3d22"/><path d="M10 130c2-34 20-46 40-46s38 12 40 46z" fill="#fff7e6"/></svg></div><b data-t="groom"></b></div>
+      <div class="pola"><div class="ph" style="background:linear-gradient(160deg,#c1121f,#4a1d5c)"><svg viewBox="0 0 100 130"><circle cx="38" cy="58" r="16" fill="#6b3d22"/><circle cx="64" cy="58" r="15" fill="#7d4a2a"/><path d="M6 130c2-30 14-42 32-42 8 0 12 2 12 2s4-2 14-2c18 0 30 12 32 42z" fill="#f7c52b"/></svg></div><b>❤</b></div>
+      <div class="pola"><div class="ph" style="background:linear-gradient(160deg,#2e6b3f,#f7c52b)"><svg viewBox="0 0 100 130"><circle cx="50" cy="58" r="19" fill="#7d4a2a"/><path d="M30 46q20-30 40 0" fill="#2a140a"/><path d="M10 130c2-34 20-46 40-46s38 12 40 46z" fill="#c1121f"/></svg></div><b data-t="bride"></b></div>
+    </div>
+    <div class="dt rv" data-t="dateText"></div><div class="mu rv" data-t="muhurat"></div>
+  </section>
+
+  <section class="invite">
+    <div class="wrap rv">
+      <p data-t="inviteLead"></p>
+      <div class="big"><em data-t="groomFull"></em><br>❤<br><em data-t="brideFull"></em></div>
+      <p data-t="groomLine"></p><p data-t="brideLine"></p>
+      <p data-t="inviteBody"></p>
+      <div class="ln" data-t="family"></div>
+    </div>
+  </section>
+
+  <section style="padding-inline:0">
+    <div class="wrap" style="text-align:center;padding-inline:1.2rem"><h2 class="rv" data-t="eventsTitle"></h2></div>
+    <div class="evs" id="evs"></div>
+    <div class="hint2">←  →</div>
+  </section>
+
+  <section class="save">
+    <div class="wrap" style="text-align:center">
+      <div class="cal rv"><i>FEB</i><b>२१</b><span data-t="dateText"></span></div>
+      <div class="cd rv" data-cd></div>
+      <div class="rv"><a class="btn k" data-ics data-t="cal"></a><a class="btn g" data-share target="_blank" rel="noopener" data-t="share"></a></div>
+    </div>
+  </section>
+
+  <section class="venue">
+    <div class="wrap vgrid">
+      <div class="map rv"><span class="pin">📍</span></div>
+      <div class="rv"><div class="vname" data-t="venue"></div><p data-t="addr"></p><p style="opacity:.85" data-t="muhurat"></p><a class="btn" data-map target="_blank" rel="noopener" data-t="directions"></a></div>
+    </div>
+  </section>
+
+  <section class="rsvp">
+    <div class="box rv">
+      <h2 style="text-align:center;color:var(--kum)" data-t="rsvpTitle"></h2>
+      <p style="text-align:center" data-t="rsvpSub"></p>
+      <form id="rsvp">
+        <div><label data-t="nameL"></label><input name="name" required></div>
+        <div class="choice"><label><input type="radio" name="att" value="yes" checked><span data-t="attY"></span></label><label><input type="radio" name="att" value="no"><span data-t="attN"></span></label></div>
+        <div><label data-t="cnt"></label><select name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div><label data-t="msgL"></label><textarea name="msg" rows="2"></textarea></div>
+        <div style="text-align:center"><button class="btn k" type="submit" data-t="send"></button></div>
+      </form>
+      <div class="done" id="done"></div>
+    </div>
+  </section>
+
+  <div class="mq"><div id="mq2"></div></div>
+  <footer><div class="bl" data-t="blessing"></div><p style="margin-top:.5rem;opacity:.8"><span data-t="credit"></span> · Your Studio Name</p></footer>
+</main>
+
+<script src="common.js"></script>
+<script>
+const cols=[["#f7c52b","#2a1b12"],["#c1121f","#fff7e6"],["#2e6b3f","#fff7e6"],["#e8511a","#fff7e6"],["#4a1d5c","#f7c52b"]],ems=["💍","🌼","🪔","🪷","🎉"];
+INV.onRender(()=>{
+  const m=("॥ "+INV.t("wedsWord")+" ✦ "+INV.t("groom")+" ❤ "+INV.t("bride")+" ✦ ").repeat(8);
+  document.getElementById("mq1").textContent=m;document.getElementById("mq2").textContent=m;
+  document.getElementById("evs").innerHTML=INV.events().map((e,i)=>`<div class="ec" style="background:${cols[i%5][0]};color:${cols[i%5][1]}"><div class="ix">${INV.num(i+1)}</div><div class="em">${ems[i%5]}</div><h3>${INV.esc(e[0])}</h3><div class="tm">${INV.esc(e[1])}</div><div>${INV.esc(e[2])}</div><p>${INV.esc(e[3])}</p></div>`).join("");
+});
+INV.rsvp(document.getElementById("rsvp"),document.getElementById("done"));
+const fx=INV.fx(document.getElementById("fx"),{colors:["#f7a21b","#e8511a","#f7c52b"],shape:"petal",dir:1,speed:.7,count:16,size:[4,7],sway:.8,alpha:.85});
+INV.render();
+addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("bar").style.transform=`scaleX(${scrollY/Math.max(1,h.scrollHeight-innerHeight)})`});
+
+const intro=document.getElementById("intro");
+intro.addEventListener("click",()=>{
+  if(intro.classList.contains("open"))return;
+  intro.classList.add("open");INV.bell();
+  setTimeout(()=>fx.burst(170),500);          /* petals */
+  setTimeout(()=>fx.burst(170),900);          /* akshata */
+  document.body.classList.add("ready");
+  setTimeout(()=>document.body.classList.remove("locked"),1800);
+});
+</script>
+</body>
+</html>

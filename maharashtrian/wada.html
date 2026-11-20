@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wada Vivah Patrika</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet">
+<style>
+:root{--wood:#2b180d;--wood2:#4a2c18;--brass:#b8862f;--brass2:#f0c878;--ink:#3a1f10;--kum:#9c1c1c;--parch:#ead7a8;--disp:'Yatra One','Tiro Devanagari Marathi',serif;--body:'Tiro Devanagari Marathi',Georgia,serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);line-height:1.9;background:#d9c08a;overflow-x:hidden;font-size:1.1rem}
+body.locked{overflow:hidden;height:100vh}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+ background:radial-gradient(ellipse at center,transparent 45%,rgba(60,25,5,.45) 100%),
+ url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");opacity:.55;mix-blend-mode:multiply}
+button,input,select,textarea{font:inherit}
+
+/* ===== INTRO : wada doors ===== */
+#intro{position:fixed;inset:0;z-index:300;background:#0d0705;perspective:1700px;overflow:hidden;display:flex;cursor:pointer;transition:opacity 1.4s,visibility 1.4s}
+#intro.gone{opacity:0;visibility:hidden}
+.yard{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 62%,#ffe3a0 0,#e9923b 22%,#6b2d12 58%,#150804 100%)}
+.yard svg{position:absolute;inset:0;width:100%;height:100%}
+.door{position:relative;width:50%;height:100%;z-index:3;transition:transform 2.8s cubic-bezier(.55,0,.2,1);
+ background:linear-gradient(90deg,rgba(0,0,0,.45),transparent 14%,transparent 86%,rgba(0,0,0,.55)),
+ repeating-linear-gradient(90deg,#4a2c18 0 38px,#2b180d 38px 40px,#52321c 40px 78px,#2b180d 78px 80px);box-shadow:inset 0 0 90px #000}
+.door.l{transform-origin:left center}.door.r{transform-origin:right center}
+#intro.open .door.l{transform:rotateY(-108deg)}#intro.open .door.r{transform:rotateY(108deg)}
+.pn{position:absolute;left:14%;right:14%;border:3px solid #1a0e07;border-radius:4px;box-shadow:inset 0 0 36px rgba(0,0,0,.65),0 0 0 3px rgba(255,200,120,.08)}
+.pn.a{top:19%;height:28%}.pn.b{top:54%;height:30%}
+.studs{position:absolute;inset:19% 14%;background:radial-gradient(circle at 35% 30%,#f7dc9a 0 2px,#b07a2c 4px,transparent 5px) 0 0/40px 40px;opacity:.9}
+.bd{position:absolute;left:0;right:0;height:6%;background:radial-gradient(circle,#8a8a8a 0 2px,transparent 3px) 0 50%/34px 100% repeat-x,linear-gradient(#1b1b1d,#3b3b40 50%,#151517);border-block:1px solid #000}
+.bd.t{top:12%}.bd.m{top:88%}
+.ring{position:absolute;top:50%;width:74px;height:74px;margin-top:-37px;border-radius:50%;border:9px solid;border-color:#f0c878 #8a5a1c #5a3810 #d29a3e;box-shadow:0 6px 10px rgba(0,0,0,.6)}
+.door.l .ring{right:14px}.door.r .ring{left:14px}
+.boss{position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fbe7b0,#b07a2c 60%,#5a3810)}
+.door.l .boss{right:29px}.door.r .boss{left:29px}
+.lintel{position:absolute;top:0;left:0;right:0;height:13%;z-index:5;display:grid;place-items:center;text-align:center;color:var(--brass2);font-family:var(--disp);font-size:clamp(1.2rem,4.2vw,2.5rem);
+ background:linear-gradient(#2e190d,#1a0d06);border-bottom:6px solid var(--brass);text-shadow:0 0 16px rgba(255,170,50,.7);transition:opacity 1.6s 1.2s}
+#intro.open .lintel{opacity:0}
+#intro .hint{position:absolute;bottom:.8vh;left:0;right:0;text-align:center;z-index:6;font-size:.95rem;color:var(--brass2);letter-spacing:.12em;animation:pulse 2.4s infinite;transition:opacity .6s;text-shadow:0 2px 8px #000}
+#intro.open .hint{opacity:0}
+@keyframes pulse{50%{opacity:.3}}
+.lights{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(255,190,90,.0),rgba(255,190,90,.0));transition:background 2.2s}
+#intro.open .lights{background:radial-gradient(ellipse at 50% 55%,rgba(255,210,130,.55),transparent 65%)}
+
+/* diyas */
+.diya{position:fixed;bottom:12px;width:56px;height:34px;z-index:250;pointer-events:none}
+.diya.l{left:clamp(14px,4vw,60px)}.diya.r{right:clamp(14px,4vw,60px)}
+.diya b{position:absolute;bottom:0;left:0;right:0;height:20px;border-radius:0 0 56px 56px;background:linear-gradient(#f3d28a,#9a6a22);box-shadow:0 0 40px 14px rgba(255,150,40,.35)}
+.fl{position:absolute;left:50%;bottom:18px;width:14px;height:30px;margin-left:-7px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;transform-origin:50% 100%;
+ background:radial-gradient(ellipse at 50% 72%,#fff7c8,#ffb52e 55%,#f06a00);animation:flick .17s infinite alternate;box-shadow:0 0 26px 10px rgba(255,160,40,.6)}
+@keyframes flick{from{transform:scale(1,1) skewX(2deg)}to{transform:scale(.88,1.12) skewX(-4deg)}}
+.yard .diya{position:absolute;z-index:2}
+
+/* ===== pillars ===== */
+.pillar{position:fixed;top:0;bottom:0;width:clamp(10px,2.4vw,34px);z-index:60;
+ background:repeating-linear-gradient(0deg,transparent 0 140px,var(--brass) 140px 148px,transparent 148px 160px),linear-gradient(90deg,#1b0e07,#5a3519 45%,#2a170c)}
+.pillar.l{left:0}.pillar.r{right:0}
+#embers{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
+
+/* ===== page ===== */
+main{position:relative;z-index:2;opacity:0;transition:opacity 1.8s ease .2s}
+body.ready main{opacity:1}
+section{max-width:960px;margin:auto;padding:clamp(3.5rem,8vw,6.5rem) clamp(1.8rem,6vw,3rem);text-align:center}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.2s,transform 1.2s}
+.rv.in{opacity:1;transform:none}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(2rem,6vw,3.2rem);color:var(--kum);line-height:1.3}
+.ornament{width:min(260px,70%);height:14px;margin:.6rem auto 2rem;background:linear-gradient(90deg,transparent,var(--brass),transparent);position:relative}
+.ornament::after{content:"❖";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:0 .7rem;background:#d9c08a;color:var(--kum);font-size:.9rem;line-height:1}
+
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:none;padding-top:150px;
+ background:radial-gradient(ellipse at 50% 30%,rgba(255,220,140,.55),transparent 65%)}
+#toran{position:absolute;top:0;left:0;width:100%;height:170px;transform-origin:50% 0;animation:sway 6s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(.5deg)}}
+.shri{font-family:var(--disp);font-size:clamp(1.4rem,4vw,2.2rem);color:var(--kum)}
+.sh2{white-space:pre-line;font-style:italic;color:#5a3a22;font-size:clamp(.95rem,2.4vw,1.2rem);margin:.4rem 0 1.4rem}
+.wv{font-family:var(--disp);color:var(--brass);font-size:clamp(1.3rem,3.6vw,2rem);letter-spacing:.1em}
+.names{font-family:var(--disp);font-size:clamp(3rem,13vw,8rem);line-height:1.15;color:var(--ink);text-shadow:2px 2px 0 rgba(184,134,47,.35)}
+.names i{display:block;font-style:normal;font-size:.3em;color:var(--kum);line-height:1}
+.dt{font-size:clamp(1.2rem,3.4vw,1.8rem);margin-top:.6rem;color:var(--kum)}
+.mu{color:#6b4a2d}
+.cd{display:flex;gap:clamp(.5rem,2vw,1.1rem);justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.cd-u{background:linear-gradient(180deg,#3a2213,#24130a);border:3px solid var(--brass);border-radius:4px;padding:.4rem .5rem;min-width:76px;color:#f3e2bd;box-shadow:0 8px 18px rgba(40,15,0,.45),inset 0 0 14px #000}
+.cd-u b{display:block;font-family:var(--disp);font-weight:400;font-size:2rem;line-height:1.3;color:var(--brass2)}
+.cd-u span{font-size:.85rem}
+.langbtn{position:fixed;top:14px;right:calc(clamp(10px,2.4vw,34px) + 12px);z-index:80;background:var(--wood);color:var(--brass2);border:2px solid var(--brass);padding:.15rem .9rem;cursor:pointer;font-family:var(--disp)}
+
+/* scroll */
+.scroll{max-width:720px;margin:0 auto;position:relative}
+.rod{height:26px;border-radius:13px;background:linear-gradient(180deg,#7a4a24,#2b180d 55%,#5a3519);box-shadow:0 6px 12px rgba(0,0,0,.4);position:relative;z-index:2;margin:0 -14px}
+.rod::before,.rod::after{content:"";position:absolute;top:-4px;bottom:-4px;width:20px;background:radial-gradient(circle at 40% 30%,#fbe7b0,#b07a2c 60%,#5a3810);border-radius:8px}
+.rod::before{left:-8px}.rod::after{right:-8px}
+.sheet{display:grid;grid-template-rows:0fr;transition:grid-template-rows 2.6s cubic-bezier(.3,.6,.2,1)}
+.scroll.in .sheet{grid-template-rows:1fr}
+.sheet>div{overflow:hidden}
+.paper{padding:2.4rem clamp(1.4rem,5vw,3rem);margin:0 6px;
+ background:linear-gradient(90deg,rgba(120,60,10,.28),transparent 7%,transparent 93%,rgba(120,60,10,.28)),radial-gradient(ellipse at 30% 20%,#f4e5bd,#e6cf98 70%,#d3b273);
+ box-shadow:inset 0 0 60px rgba(120,60,10,.35)}
+.paper .brd{border:2px solid var(--brass);outline:1px solid var(--brass);outline-offset:5px;padding:2rem 1.2rem}
+.paper p{margin:.6rem 0}
+.nm{font-family:var(--disp);font-size:clamp(1.5rem,4.5vw,2.2rem);color:var(--kum)}
+.sm{color:#6b4a2d;font-size:1rem}
+
+.couple{display:flex;justify-content:center;gap:clamp(1.5rem,6vw,4rem);flex-wrap:wrap;margin-top:1rem}
+.arch{width:190px;height:250px;border-radius:95px 95px 4px 4px;border:7px solid var(--brass);outline:3px solid var(--wood);outline-offset:-1px;overflow:hidden;position:relative;margin:0 auto .8rem;
+ background:radial-gradient(circle at 50% 30%,#ffe9b0,#c98d4a 75%);box-shadow:0 14px 26px rgba(40,15,0,.45)}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+.arch small{position:absolute;bottom:6px;left:0;right:0;font-size:.7rem;color:#5a3a22;letter-spacing:.2em}
+
+.planks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem;margin-top:1rem}
+.plank{color:#f3e2bd;padding:2rem 1.4rem;border:4px solid var(--brass);border-radius:3px;box-shadow:0 12px 24px rgba(40,15,0,.45);transition:transform .5s;
+ background:radial-gradient(circle at 13px 13px,#f0c878 0 3px,transparent 4px),radial-gradient(circle at calc(100% - 13px) 13px,#f0c878 0 3px,transparent 4px),radial-gradient(circle at 13px calc(100% - 13px),#f0c878 0 3px,transparent 4px),radial-gradient(circle at calc(100% - 13px) calc(100% - 13px),#f0c878 0 3px,transparent 4px),
+ linear-gradient(180deg,rgba(255,255,255,.07),transparent),repeating-linear-gradient(90deg,#4a2c18 0 38px,#2b180d 38px 40px)}
+.plank:hover{transform:translateY(-8px) rotate(-.6deg)}
+.plank h3{font-family:var(--disp);font-weight:400;font-size:1.8rem;color:var(--brass2)}
+.plank .tm{color:#ffd9a0}.plank .pl{opacity:.85;font-size:.95rem}.plank p{margin-top:.6rem;font-size:.98rem}
+
+.wadaart{max-width:460px;margin:0 auto 1rem;filter:drop-shadow(0 12px 14px rgba(40,15,0,.4))}
+.vname{font-family:var(--disp);font-size:clamp(1.8rem,5vw,2.6rem);color:var(--ink)}
+.btn{display:inline-block;margin:.5rem;padding:.6rem 1.8rem;border:3px solid var(--brass);background:linear-gradient(#3a2213,#24130a);color:var(--brass2);text-decoration:none;cursor:pointer;font-family:var(--disp);transition:.3s}
+.btn:hover{background:var(--kum);color:#fff}
+
+form{display:grid;gap:1.2rem;text-align:left;margin-top:1rem}
+label{color:#6b4a2d;font-size:.95rem}
+input,select,textarea{width:100%;background:rgba(255,248,225,.55);border:0;border-bottom:2px solid var(--brass);padding:.5rem .6rem;color:var(--ink);outline:0}
+input:focus,select:focus,textarea:focus{background:rgba(255,248,225,.9)}
+.choice{display:flex;gap:.8rem;flex-wrap:wrap}
+.choice label{flex:1;min-width:140px;text-align:center;border:2px solid var(--brass);padding:.5rem;cursor:pointer;color:var(--ink)}
+.choice input{display:none}.choice label:has(input:checked){background:var(--kum);color:#fff}
+.seal{width:92px;height:92px;border-radius:50%;border:0;margin:.5rem auto 0;display:block;cursor:pointer;color:#ffd9d0;font-family:var(--disp);
+ background:radial-gradient(circle at 35% 30%,#d9534f,#8f1d1d 60%,#5c0f0f);box-shadow:0 6px 12px rgba(0,0,0,.5),inset 0 -4px 8px rgba(0,0,0,.4);transition:transform .3s}
+.seal:hover{transform:scale(1.08) rotate(6deg)}
+.done{display:none;font-family:var(--disp);font-size:1.5rem;color:var(--kum);margin-top:1rem}.done.show{display:block;animation:pop .8s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.7)}}
+footer{padding:3rem 1.5rem 7rem;text-align:center;color:#3a1f10;font-size:.95rem}
+footer .bl{font-family:var(--disp);font-size:clamp(1.4rem,4vw,2rem);color:var(--kum)}
+</style>
+</head>
+<body class="locked">
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="yard">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice">
+      <rect x="0" y="0" width="70" height="300" fill="#24100a"/><rect x="330" y="0" width="70" height="300" fill="#24100a"/>
+      <path d="M70 300V110a130 130 0 0 1 260 0v190" fill="none" stroke="#b8862f" stroke-width="3" opacity=".7"/>
+      <ellipse cx="200" cy="290" rx="190" ry="26" fill="#ffcf7a" opacity=".5"/>
+      <rect x="170" y="222" width="60" height="58" fill="#8a4b2a"/><rect x="160" y="212" width="80" height="12" fill="#a65e33"/>
+      <g fill="#3f8a3a"><circle cx="200" cy="190" r="16"/><circle cx="185" cy="200" r="12"/><circle cx="216" cy="200" r="12"/><circle cx="200" cy="172" r="11"/></g>
+    </svg>
+    <div class="diya l" style="left:22%;bottom:10%"><i class="fl"></i><b></b></div>
+    <div class="diya r" style="right:22%;bottom:10%"><i class="fl"></i><b></b></div>
+  </div>
+  <div class="door l"><div class="bd t"></div><div class="bd m"></div><div class="pn a"></div><div class="pn b"></div><div class="studs"></div><div class="boss"></div><div class="ring"></div></div>
+  <div class="door r"><div class="bd t"></div><div class="bd m"></div><div class="pn a"></div><div class="pn b"></div><div class="studs"></div><div class="boss"></div><div class="ring"></div></div>
+  <div class="lights"></div>
+  <div class="lintel"><span data-t="shloka"></span></div>
+  <div class="hint"><span data-t="guestPre"></span> <b data-guest></b> · <span data-t="tap"></span></div>
+</div>
+
+<div class="pillar l"></div><div class="pillar r"></div>
+<button class="langbtn" data-lang></button>
+<div class="diya l"><i class="fl"></i><b></b></div><div class="diya r"><i class="fl"></i><b></b></div>
+<canvas id="embers"></canvas>
+
+<main>
+  <section id="hero">
+    <svg id="toran" viewBox="0 0 1000 170" preserveAspectRatio="none"></svg>
+    <div class="shri" data-t="shloka"></div>
+    <div class="sh2" data-t="shloka2"></div>
+    <div class="wv rv" data-t="wedsWord"></div>
+    <h1 class="names rv"><span data-t="groom"></span><i>❖</i><span data-t="bride"></span></h1>
+    <div class="dt rv" data-t="dateText"></div>
+    <div class="mu rv" data-t="muhurat"></div>
+    <div class="cd rv" data-cd></div>
+  </section>
+
+  <section>
+    <div class="scroll rv">
+      <div class="rod"></div>
+      <div class="sheet"><div><div class="paper"><div class="brd">
+        <div class="shri" data-t="shloka"></div>
+        <p class="sm" data-t="inviteLead"></p>
+        <p data-t="inviteBody"></p>
+        <p class="nm" data-t="groomFull"></p><p class="sm" data-t="groomLine"></p>
+        <div class="ornament" style="height:10px"></div>
+        <p class="nm" data-t="brideFull"></p><p class="sm" data-t="brideLine"></p>
+        <p style="margin-top:1.4rem;color:var(--kum)" data-t="dateText"></p>
+        <p data-t="muhurat"></p>
+        <p><b data-t="venue"></b><br><span class="sm" data-t="addr"></span></p>
+        <p style="margin-top:1.4rem" class="sm"><span data-t="snehankit"></span> — <b data-t="family"></b></p>
+      </div></div></div></div>
+      <div class="rod"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="rv" data-t="coupleTitle"></h2><div class="ornament"></div>
+    <div class="couple rv">
+      <div><div class="arch"><svg viewBox="0 0 100 130"><circle cx="50" cy="50" r="19" fill="#7a4a2a"/><path d="M12 130c2-34 20-48 38-48s36 14 38 48z" fill="#b5261f"/><path d="M34 96q16 14 32 0" stroke="#f0c878" stroke-width="3" fill="none"/></svg><small>PHOTO</small></div><div class="nm" data-t="groomFull"></div></div>
+      <div><div class="arch"><svg viewBox="0 0 100 130"><circle cx="50" cy="52" r="18" fill="#8a5a3a"/><path d="M30 40q20-28 40 0" fill="#2b140a"/><path d="M12 130c2-34 20-48 38-48s36 14 38 48z" fill="#1f6b4a"/><circle cx="50" cy="40" r="3" fill="#b5261f"/><path d="M34 96q16 14 32 0" stroke="#f0c878" stroke-width="3" fill="none"/></svg><small>PHOTO</small></div><div class="nm" data-t="brideFull"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="rv" data-t="eventsTitle"></h2><div class="ornament"></div>
+    <div class="planks" id="planks"></div>
+  </section>
+
+  <section>
+    <h2 class="rv" data-t="venueTitle"></h2><div class="ornament"></div>
+    <svg class="wadaart rv" viewBox="0 0 400 230">
+      <polygon points="20,70 380,70 350,20 50,20" fill="#6b3a1c"/><path d="M50 20h300M42 35h316M34 52h332" stroke="#3a1f10" stroke-width="2"/>
+      <rect x="30" y="70" width="340" height="150" fill="#d9b77a"/><rect x="30" y="70" width="340" height="12" fill="#4a2c18"/>
+      <g fill="#4a2c18"><rect x="40" y="82" width="14" height="138"/><rect x="110" y="82" width="14" height="138"/><rect x="276" y="82" width="14" height="138"/><rect x="346" y="82" width="14" height="138"/></g>
+      <path d="M150 220V150a50 50 0 0 1 100 0v70z" fill="#1a0a05"/><path d="M162 220V152a38 38 0 0 1 76 0v68z" fill="#ffb94d" opacity=".75"/>
+      <rect x="65" y="98" width="40" height="34" fill="#4a2c18"/><rect x="295" y="98" width="40" height="34" fill="#4a2c18"/>
+      <rect x="70" y="103" width="30" height="24" fill="#ffcf7a"/><rect x="300" y="103" width="30" height="24" fill="#ffcf7a"/>
+    </svg>
+    <div class="vname rv" data-t="venue"></div><p class="rv" data-t="addr"></p>
+    <div class="rv"><a class="btn" data-map target="_blank" rel="noopener" data-t="directions"></a><a class="btn" data-ics data-t="cal"></a><a class="btn" data-share target="_blank" rel="noopener" data-t="share"></a></div>
+  </section>
+
+  <section>
+    <div class="scroll rv">
+      <div class="rod"></div>
+      <div class="sheet"><div><div class="paper"><div class="brd">
+        <h2 data-t="rsvpTitle"></h2><p class="sm" data-t="rsvpSub"></p>
+        <form id="rsvp">
+          <div><label data-t="nameL"></label><input name="name" required></div>
+          <div class="choice"><label><input type="radio" name="att" value="yes" checked><span data-t="attY"></span></label><label><input type="radio" name="att" value="no"><span data-t="attN"></span></label></div>
+          <div><label data-t="cnt"></label><select name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+          <div><label data-t="msgL"></label><textarea name="msg" rows="2"></textarea></div>
+          <button class="seal" type="submit" data-t="send"></button>
+        </form>
+        <div class="done" id="done"></div>
+      </div></div></div></div>
+      <div class="rod"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="bl" data-t="blessing"></div>
+    <p style="margin-top:.6rem"><span data-t="credit"></span> · Your Studio Name</p>
+  </footer>
+</main>
+
+<script src="common.js"></script>
+<script>
+/* marigold toran */
+(()=>{
+  const s=document.getElementById("toran");let h="";
+  const col=["#f08a1c","#f6b81e","#e86a10"];
+  for(let sw=0;sw<5;sw++)for(let k=0;k<=20;k++){
+    const x=sw*200+k*10,y=8+34*Math.sin(Math.PI*k/20);
+    h+=`<circle cx="${x}" cy="${y}" r="8" fill="${col[(k+sw)%3]}" stroke="#a24a08" stroke-width=".8"/>`;
+    if(k%4===0&&k>0&&k<20){const L=24+(k*7%26);
+      for(let j=1;j<=L/9;j++)h+=`<circle cx="${x}" cy="${y+j*9}" r="4.5" fill="${col[(j+k)%3]}"/>`;
+      h+=`<path d="M${x} ${y+L+4}q-9 8 0 20q9-12 0-20z" fill="#2f8a3a"/>`;}
+  }
+  s.innerHTML=h;
+})();
+INV.onRender(()=>{
+  document.getElementById("planks").innerHTML=INV.events().map(e=>`<div class="plank rv"><h3>${INV.esc(e[0])}</h3><div class="tm">${INV.esc(e[1])}</div><div class="pl">${INV.esc(e[2])}</div><p>${INV.esc(e[3])}</p></div>`).join("");
+});
+INV.rsvp(document.getElementById("rsvp"),document.getElementById("done"));
+INV.fx(document.getElementById("embers"),{colors:["#ff9a2e","#ffd27a","#ff6a1a"],shape:"circle",dir:-1,speed:.55,count:38,size:[1,2.6],glow:8,sway:.6,alpha:.8});
+INV.render();
+
+const intro=document.getElementById("intro");
+intro.addEventListener("click",()=>{
+  if(intro.classList.contains("open"))return;
+  intro.classList.add("open");INV.bell();
+  setTimeout(()=>{intro.classList.add("gone");document.body.classList.remove("locked");document.body.classList.add("ready")},3300);
+});
+</script>
+</body>
+</html>
