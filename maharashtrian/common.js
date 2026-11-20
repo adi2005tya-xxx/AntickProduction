@@ -18,7 +18,7 @@ const DATA={
     nameL:"आपले नाव", attY:"नक्की येणार", attN:"येता येणार नाही", cnt:"एकूण व्यक्ती", msgL:"शुभेच्छा संदेश", send:"पाठवा",
     thanks:"धन्यवाद! आपली उपस्थिती नोंदवली गेली आहे.", directions:"मार्ग पाहा", cal:"कॅलेंडरमध्ये जोडा", share:"WhatsApp वर पाठवा",
     blessing:"आपले आशीर्वाद हाच आमचा आहेर", family:"देशपांडे व कुलकर्णी परिवार", snehankit:"स्नेहांकित",
-    guestPre:"प्रति,", guestDefault:"आदरणीय पाहुणे", langBtn:"EN", credit:"निमंत्रण रचना",
+    guestPre:"प्रति,", guestDefault:"आदरणीय पाहुणे", langBtn:"EN", credit:"निमंत्रण रचना", galleryTitle:"आठवणीतला वाडा", creditsTitle:"छायाचित्र श्रेय", mapTitle:"नकाशा",
     events:[
       ["साखरपुडा","शनिवार, २० फेब्रुवारी · सायं. ५:००","वाडा – दिवाणखाना","दोन्ही कुटुंबांचा स्नेहमिलन व साखरपुडा समारंभ."],
       ["हळदी समारंभ","रविवार, २१ फेब्रुवारी · सकाळी ८:००","वाडा – अंगण (चौक)","हळद, गाणी आणि पिवळ्या रंगांची उधळण."],
@@ -44,7 +44,7 @@ const DATA={
     nameL:"Your name", attY:"Joyfully attending", attN:"Unable to attend", cnt:"Total guests", msgL:"A message for the couple", send:"Send",
     thanks:"Thank you! Your reply has been recorded.", directions:"Get directions", cal:"Add to calendar", share:"Share on WhatsApp",
     blessing:"Your blessings are our greatest gift", family:"The Deshpande & Kulkarni families", snehankit:"With love",
-    guestPre:"To,", guestDefault:"Our Dear Guest", langBtn:"मराठी", credit:"Invitation crafted by",
+    guestPre:"To,", guestDefault:"Our Dear Guest", langBtn:"मराठी", credit:"Invitation crafted by", galleryTitle:"Glimpses of the wada", creditsTitle:"Photo credits", mapTitle:"Map",
     events:[
       ["Sakharpuda","Saturday, 20 Feb · 5:00 PM","Wada – Diwankhana","Engagement and family gathering."],
       ["Haldi","Sunday, 21 Feb · 8:00 AM","Wada – Courtyard (Chowk)","Turmeric, songs and a burst of yellow."],
